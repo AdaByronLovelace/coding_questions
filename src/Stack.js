@@ -1,6 +1,6 @@
 import React from 'react'
 
-export default class Stack {
+export default class Stack extends React.Component {
   constructor(props) {
     super(props);
     this.state = { data:[] };

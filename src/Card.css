@@ -1,0 +1,12 @@
+.card {
+  display: flex;
+  flex-direction: column;
+  margin: 10px 5px;
+  padding: 10px;
+  border: 2px gray solid;
+  min-width: 200px;
+}
+
+h2 {
+  margin: 5px;
+}
