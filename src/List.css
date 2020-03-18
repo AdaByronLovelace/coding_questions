@@ -4,14 +4,30 @@
 }
 
 .list-item {
-  border: 1px solid black;
   padding: 5px;
+  background-color: #ededed;
+  margin: 3px;
+  
+}
+
+.buttons {
+  display: flex;
+  flex-direction: row;
 }
 
 button {
   border: none;
-  padding: 15px;
+  padding: 10px 20px;
+  margin: 5px;
   text-align: center;
   text-decoration: none;
-  font-size: 1.5rem;
+  font-weight: 500;
+  font-size: 1rem;
+  background-color: #95aaec;
+  flex-grow: 1;
+  justify-content: space-between;
+}
+
+button:hover, button:active {
+  background-color: #bfc9f0;
 }

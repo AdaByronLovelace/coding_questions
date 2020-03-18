@@ -6,18 +6,34 @@ export default class Queue extends React.Component {
   constructor(props) {
     super(props)
     this.state = { queue:[] }
+
+    this.enQueue = this.enQueue.bind(this)
   }
 
   componentDidMount() {
-    let startQueue = Names.names1.slice(0,9)
-    let addQueue = Names.names2.slice(0,9)
-    this.setState({queue:startQueue})
+    this.setState({
+      queue: Names.names1.slice(0,9),
+      newValues: Names.names2
+    })
+  }
+
+  enQueue() {
+    let queue = []
+
+    this.setState({
+      queue: queue
+    })
   }
 
   render() {
     return (
       <div className="queue">
-        <button className="button">Add to Queue</button>
+        <p>The queue begins as a simple array of ten items. I use a seperate array of names for adding to the queue. Because this is Javascript adding and deleting to the queue is completely simple and uninteresting array operations, but whatever. Mostly this is a good exmaple for setting up a component that has some custom UI and buttons that do things!</p>
+        <div className="buttons">
+          <button className="button">Enqueue</button>
+          <button className="button">Dequeue</button>
+          <button className="button">Reset Queue</button>
+        </div>
         <div className="list">
         {
           this.state.queue.map((item) => (

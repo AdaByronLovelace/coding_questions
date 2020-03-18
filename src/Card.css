@@ -5,8 +5,14 @@
   padding: 10px;
   border: 2px gray solid;
   min-width: 200px;
+  max-width: 500px;
 }
 
 h2 {
   margin: 5px;
+  text-align: center;
+}
+
+h1 {
+  text-align: center;
 }
