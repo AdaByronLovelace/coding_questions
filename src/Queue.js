@@ -1,27 +1,29 @@
 import React from 'react'
 import './List.css'
-import Names from './Data.json'
+import { sampleData } from './Data'
 
 export default class Queue extends React.Component {
   constructor(props) {
     super(props)
-    this.state = { queue:[] }
+    this.state = { 
+      queue: ["Liam", "Noah", "William", "James", "Oliver"], 
+      next: 0
+    }
 
-    this.enQueue = this.enQueue.bind(this)
+    this.enqueue = this.enqueue.bind(this)
+    this.dequeue = this.dequeue.bind(this)
   }
 
-  componentDidMount() {
+  enqueue() {
     this.setState({
-      queue: Names.names1.slice(0,9),
-      newValues: Names.names2
+      queue: [...this.state.queue, sampleData.names2[this.state.next]],
+      next: this.state.next + 1
     })
   }
 
-  enQueue() {
-    let queue = []
-
+  dequeue() {
     this.setState({
-      queue: queue
+      queue: this.state.queue.slice(1)
     })
   }
 
@@ -30,14 +32,13 @@ export default class Queue extends React.Component {
       <div className="queue">
         <p>The queue begins as a simple array of ten items. I use a seperate array of names for adding to the queue. Because this is Javascript adding and deleting to the queue is completely simple and uninteresting array operations, but whatever. Mostly this is a good exmaple for setting up a component that has some custom UI and buttons that do things!</p>
         <div className="buttons">
-          <button className="button">Enqueue</button>
-          <button className="button">Dequeue</button>
-          <button className="button">Reset Queue</button>
+          <button className="button" onClick={() => this.enqueue()}>Enqueue</button>
+          <button className="button" onClick={() => this.dequeue()}>Dequeue</button>
         </div>
         <div className="list">
         {
-          this.state.queue.map((item) => (
-            <div className="list-item">{item}</div>
+          this.state.queue.map((item, index) => (
+            <div className="list-item" key={index}>{item}</div>
           ))
         }
         </div>
