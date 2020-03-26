@@ -6,7 +6,7 @@ export default class Queue extends React.Component {
   constructor(props) {
     super(props)
     this.state = { 
-      queue: ["Liam", "Noah", "William", "James", "Oliver"], 
+      queue: sampleData.names1.slice(0,5), 
       next: 0
     }
 
